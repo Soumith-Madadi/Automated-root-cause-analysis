@@ -43,6 +43,17 @@ A production-grade root cause analysis system that automatically detects anomali
 - **Prometheus**: Metrics collection
 - **Grafana**: Visualization and dashboards
 
+## Screenshots
+
+### Demo Dashboard
+![Demo Dashboard](https://github.com/user-attachments/assets/6f1837c0-0bed-488c-a907-99fc7923c936)
+
+### Incident Dashboard
+![Incident Dashboard](https://github.com/user-attachments/assets/098d7c55-44da-43a9-91d0-8e9dbf84dd5e)
+
+### Latency Dashboard
+![Latency Dashboard](https://github.com/user-attachments/assets/10eb8d6f-73bf-48cb-9214-d50feebf44c2)
+
 ## Quick Start
 
 ### Prerequisites
