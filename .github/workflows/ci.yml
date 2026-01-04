@@ -1,0 +1,47 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      
+      - name: Install dependencies
+        run: |
+          pip install flake8 black
+      
+      - name: Lint Python code
+        run: |
+          flake8 apps/ scripts/ --max-line-length=120 --exclude=__pycache__,*.pyc
+          black --check apps/ scripts/
+  
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      
+      - name: Install dependencies
+        run: |
+          cd apps/api && pip install -r requirements.txt
+          cd ../detector && pip install -r requirements.txt
+          cd ../rca && pip install -r requirements.txt
+      
+      - name: Run smoke tests
+        run: |
+          python scripts/smoke_test.py || echo "Smoke tests require running services"

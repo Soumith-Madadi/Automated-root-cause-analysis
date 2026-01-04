@@ -1,0 +1,8 @@
+aiokafka==0.10.0
+clickhouse-driver==0.2.6
+asyncpg==0.29.0
+numpy==1.26.2
+redis==5.0.1
+python-dotenv==1.0.0
+
+
